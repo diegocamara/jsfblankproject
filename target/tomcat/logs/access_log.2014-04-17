@@ -1,0 +1,6 @@
+0:0:0:0:0:0:0:1 - - [17/Apr/2014:19:53:49 -0300] "GET /blank/faces/index.xhtml HTTP/1.1" 200 18656 http-bio-8080-exec-1 4979
+0:0:0:0:0:0:0:1 - - [17/Apr/2014:19:53:49 -0300] "GET /blank/faces/js/jquery-1.10.2.js HTTP/1.1" 404 1001 http-bio-8080-exec-6 27
+0:0:0:0:0:0:0:1 - - [17/Apr/2014:19:53:49 -0300] "GET /blank/faces/js/tablesorter/jquery.tablesorter.js HTTP/1.1" 404 1035 http-bio-8080-exec-4 21
+0:0:0:0:0:0:0:1 - - [17/Apr/2014:19:53:49 -0300] "GET /blank/faces/js/morris/chart-data-morris.js HTTP/1.1" 404 1023 http-bio-8080-exec-3 23
+0:0:0:0:0:0:0:1 - - [17/Apr/2014:19:53:49 -0300] "GET /blank/faces/js/bootstrap.js HTTP/1.1" 404 993 http-bio-8080-exec-2 24
+0:0:0:0:0:0:0:1 - - [17/Apr/2014:19:53:49 -0300] "GET /blank/faces/js/tablesorter/tables.js HTTP/1.1" 404 1011 http-bio-8080-exec-5 19

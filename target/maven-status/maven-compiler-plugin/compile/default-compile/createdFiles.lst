@@ -1,0 +1,12 @@
+template\blank\business\IExemploManager.class
+template\blank\presentation\ConstantesMensagens.class
+template\blank\business\ExemploManager.class
+template\blank\persistence\ExemploDAO.class
+template\blank\persistence\AbstractDAO.class
+template\blank\util\HibernateTest.class
+template\blank\util\IniciarBanco.class
+template\blank\presentation\AbstractMB.class
+template\blank\util\MessagesUtil.class
+template\blank\business\AbstractManager.class
+template\blank\business\ExemploEntity.class
+template\blank\presentation\ExemploMB.class

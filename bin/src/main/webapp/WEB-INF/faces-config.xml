@@ -4,8 +4,8 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
 	version="2.2">
 
-	<navigation-rule>
 	<!--  
+	<navigation-rule>
 		<from-view-id>*</from-view-id>
 		<navigation-case>
 			<from-outcome>searchCategory</from-outcome>
@@ -23,13 +23,13 @@
 			<from-view-id>/category/searchCategory.xhtml</from-view-id>
 
 			<from-outcome>editCategory</from-outcome>
-			<!-- Foward -->
+			< Foward >
 			<to-view-id>/category/editCategory.xhtml</to-view-id>
 
-			<!-- Redirect -->
+			< Redirect >
 			<redirect />
 		</navigation-case>		
-	-->		
 	</navigation-rule>
+	-->		
 
 </faces-config>

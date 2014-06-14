@@ -1,35 +1,36 @@
 package template.blank.presentation;
 
-import javax.faces.bean.ManagedBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.WebApplicationContext;
 
-import javax.faces.bean.RequestScoped;
+import template.blank.business.IExemploManager;
+import template.blank.util.MessagesUtil;
 
-import template.blank.business.ExemploManager;
-
-import template.blank.util.*;
-
-@ManagedBean
-@RequestScoped
+@Component
+@Scope(WebApplicationContext.SCOPE_REQUEST)
 public class ExemploMB extends AbstractMB {
 
-	private ExemploManager exemploManager;
+	@Autowired
+	private IExemploManager exemploManager;
+
 	private double resultado;
-	
 
 	@Override
-	void inicializar() {		
-		this.exemploManager = new ExemploManager();
+	void inicializar() {
+		System.out.println();
 	}
-	
-	public void buscar(){
+
+	public void buscar() {
 		resultado = this.exemploManager.buscarValor("1");
 	}
 
-	public ExemploManager getExemploManager() {
+	public IExemploManager getExemploManager() {
 		return exemploManager;
 	}
 
-	public void setExemploManager(ExemploManager exemploManager) {
+	public void setExemploManager(IExemploManager exemploManager) {
 		this.exemploManager = exemploManager;
 	}
 
@@ -41,9 +42,8 @@ public class ExemploMB extends AbstractMB {
 		this.resultado = resultado;
 	}
 
-	public String getMsg(){
-		return MessagesUtil.getMessage("message2","Test3");
+	public String getMsg() {
+		return MessagesUtil.getMessage("message2", "Test3");
 	}
-	
-	
+
 }

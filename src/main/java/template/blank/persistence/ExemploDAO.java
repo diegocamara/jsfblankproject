@@ -4,15 +4,14 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 
 import template.blank.business.ExemploEntity;
 
+@Repository
 public class ExemploDAO extends AbstractDAO<ExemploEntity> {
 
-	public ExemploDAO(String schema) {
-		super(schema);
-	}
-
+	
 	public Double buscarValor(String codigo){
 		
 		Criteria criteria = createCriteria();

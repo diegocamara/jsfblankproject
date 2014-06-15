@@ -12,19 +12,19 @@ import template.blank.business.ExemploEntity;
 public class ExemploDAO extends AbstractDAO<ExemploEntity> {
 
 	
-	public Double buscarValor(String codigo){
-		
+	public Double buscarValor(int codigo) {
+
 		Criteria criteria = createCriteria();
-		
+
 		criteria.add(Restrictions.eq("codigo", codigo));
 
 		ProjectionList projectionList = Projections.projectionList();
 		projectionList.add(Projections.property("valor"));
 
 		criteria.setProjection(projectionList);
-		
-		return (Double)criteria.uniqueResult();
-		
+
+		return (Double) criteria.uniqueResult();
+
 	}
-	
+
 }

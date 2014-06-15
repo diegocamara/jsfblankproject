@@ -8,6 +8,8 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 
 public class AbstractDAO <E>{
@@ -23,9 +25,14 @@ public class AbstractDAO <E>{
 	
 	public Criteria createCriteria(){
 		
-		Criteria criteria = getSession().createCriteria(getEntityClass());
+		Criteria criteria = getSession().createCriteria(getEntityClass());		
 		
 		return criteria;
+	}
+	
+	@Transactional(propagation = Propagation.MANDATORY)
+	public void save(Object object){
+		getSession().save(object);
 	}
 	
 	protected Class<E> getEntityClass(){

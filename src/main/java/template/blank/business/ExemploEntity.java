@@ -13,18 +13,19 @@ import javax.validation.constraints.Size;
 public class ExemploEntity {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String codigo;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "CODIGO")
+	private int codigo;
 
 	@Column
 	@Size(min = 1, max = 100)
 	private Double valor;
 
-	public String getCodigo() {
+	public int getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(String codigo) {
+	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
 

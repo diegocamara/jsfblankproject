@@ -23,7 +23,7 @@ public class ExemploMB extends AbstractMB {
 	}
 
 	public void buscar() {
-		resultado = this.exemploManager.buscarValor("1");
+		resultado = this.exemploManager.buscarValor(1);
 	}
 
 	public IExemploManager getExemploManager() {

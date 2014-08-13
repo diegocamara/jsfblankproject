@@ -1,4 +1,4 @@
-package template.blank.business;
+package template.blank.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,6 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
+
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 @Entity
 @Table(name = "TBEXEMPLO")
@@ -19,7 +22,7 @@ public class ExemploEntity {
 
 	@Column
 	@Size(min = 1, max = 100)
-	private Double valor;
+	private int valor;
 
 	public int getCodigo() {
 		return codigo;
@@ -29,12 +32,30 @@ public class ExemploEntity {
 		this.codigo = codigo;
 	}
 
-	public Double getValor() {
+	public int getValor() {
 		return valor;
 	}
 
-	public void setValor(Double valor) {
+	public void setValor(int valor) {
 		this.valor = valor;
+	}
+	
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder().append(this.valor).toHashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+
+		if (obj instanceof ExemploEntity) {
+			final ExemploEntity exemploEntity = (ExemploEntity) obj;
+			return new EqualsBuilder().append(this.valor, exemploEntity.getValor())
+					.isEquals();
+		} else {
+			return false;
+		}
+
 	}
 
 }

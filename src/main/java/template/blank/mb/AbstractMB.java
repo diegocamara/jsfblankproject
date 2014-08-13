@@ -1,4 +1,4 @@
-package template.blank.presentation;
+package template.blank.mb;
 
 import javax.annotation.PostConstruct;
 

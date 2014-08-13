@@ -1,4 +1,4 @@
-package template.blank.presentation;
+package template.blank.util;
 
 public class ConstantesMensagens {
 

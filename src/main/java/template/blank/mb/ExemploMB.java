@@ -1,18 +1,19 @@
-package template.blank.presentation;
+package template.blank.mb;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.view.ViewScoped;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-import org.springframework.web.context.WebApplicationContext;
 
-import template.blank.business.IExemploManager;
-import template.blank.util.MessagesUtil;
+import template.blank.manager.IExemploManager;
+import template.blank.util.MensagensUtil;
 
-@Component
-@Scope(WebApplicationContext.SCOPE_REQUEST)
+@ManagedBean
+@ViewScoped
 public class ExemploMB extends AbstractMB {
 
-	@Autowired
+	@ManagedProperty(value = "#{exemploManager}")
 	private IExemploManager exemploManager;
 
 	private double resultado;
@@ -42,8 +43,8 @@ public class ExemploMB extends AbstractMB {
 		this.resultado = resultado;
 	}
 
-	public String getMsg() {
-		return MessagesUtil.getMessage("message2", "Test3");
+	public String getMsg() {		
+		return  MensagensUtil.getMessage("message2", "Test3");
 	}
 
 }

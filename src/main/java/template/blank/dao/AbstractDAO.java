@@ -1,55 +1,67 @@
 package template.blank.dao;
 
+import java.lang.reflect.ParameterizedType;
+
+import javax.annotation.PostConstruct;
+
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Transactional;
 
-@Transactional(isolation = Isolation.DEFAULT, rollbackFor = Exception.class)
-public abstract class AbstractDAOTest extends AbstractTest {
+public class AbstractDAO<E> {
 
 	private @Autowired
 	SessionFactory sessionFactory;
-	private Session session;
+
+	private Class<E> persistentClass;
+
+	@PostConstruct
+	private void sessionCreate() {
+		persistentClass = (Class<E>) ((ParameterizedType) getClass()
+				.getGenericSuperclass()).getActualTypeArguments()[0];
+	}
+
+	public Criteria createCriteria() {
+
+		Criteria criteria = getCurrentSession()
+				.createCriteria(getEntityClass());
+
+		return criteria;
+	}
 
 	public void save(Object... entityObject) {
 		for (Object object : entityObject) {
-			getCurrentSession().save(object);
+			getCurrentSession().save(object);			
 		}
-		flush();
+		getCurrentSession().flush();
 	}
 
 	public void update(Object... entityObject) {
 		for (Object object : entityObject) {
 			getCurrentSession().update(object);
 		}
-		flush();
 	}
 
 	public void delete(Object... entityObject) {
 		for (Object object : entityObject) {
 			getCurrentSession().delete(object);
 		}
-		flush();
 	}
 
 	public void evict(Object... entityObject) {
 		for (Object object : entityObject) {
 			getCurrentSession().evict(object);
 		}
-		flush();
 	}
 
-	private void flush() {
-		getCurrentSession().flush();
+	protected Class<E> getEntityClass() {
+		return persistentClass;
 	}
 
 	protected Session getCurrentSession() {
-		if (session == null) {
-			session = sessionFactory.getCurrentSession();
-		}
-		return session;
+		return sessionFactory.getCurrentSession();
+
 	}
 
 }

@@ -1,4 +1,4 @@
-package template.blank.dao;
+package template.blank.persistence;
 
 import javax.sql.DataSource;
 

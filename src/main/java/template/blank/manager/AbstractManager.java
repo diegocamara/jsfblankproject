@@ -1,4 +1,4 @@
-package template.blank.business;
+package template.blank.manager;
 
 import org.springframework.transaction.annotation.Transactional;
 

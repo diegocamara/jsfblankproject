@@ -24,7 +24,7 @@
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
 		p:dataSource-ref="dataSource" 
-		p:packagesToScan="template.blank.business"
+		p:packagesToScan="template.blank.domain"
 		p:hibernateProperties-ref="hibernateProperties" 
 		depends-on="schemaCreator" />
 
@@ -44,7 +44,7 @@
 	<tx:annotation-driven transaction-manager="transactionManager"
 		proxy-target-class="true" />
 
-	<bean id="schemaCreator" class="template.blank.dao.SchemaCreator">
+	<bean id="schemaCreator" class="template.blank.persistence.SchemaCreator">
 		<property name="dataSource" ref="dataSource" />
 		<property name="schema" value="TEST" />
 	</bean>

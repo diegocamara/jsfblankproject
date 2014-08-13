@@ -1,10 +1,10 @@
-package template.blank.business;
+package template.blank.manager;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import template.blank.persistence.ExemploDAO;
+import template.blank.dao.ExemploDAO;
 
 @Service
 public class ExemploManager extends AbstractManager<ExemploDAO> implements
@@ -14,8 +14,8 @@ public class ExemploManager extends AbstractManager<ExemploDAO> implements
 	private ExemploDAO exemploDao;
 
 	@Override	
-	@Transactional
-	public Double buscarValor(int codigo) {
+	@Transactional(readOnly = true)
+	public int buscarValor(int codigo) {
 		return this.exemploDao.buscarValor(codigo);
 	}
 

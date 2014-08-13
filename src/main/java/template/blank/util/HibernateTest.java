@@ -10,7 +10,7 @@ import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
-import template.blank.business.ExemploEntity;
+import template.blank.domain.ExemploEntity;
 
 public class HibernateTest {
 

@@ -1,4 +1,4 @@
-package template.blank.persistence;
+package template.blank.dao;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.ProjectionList;
@@ -6,13 +6,12 @@ import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
-import template.blank.business.ExemploEntity;
+import template.blank.domain.ExemploEntity;
 
 @Repository
 public class ExemploDAO extends AbstractDAO<ExemploEntity> {
 
-	
-	public Double buscarValor(int codigo) {
+	public int buscarValor(int codigo) {
 
 		Criteria criteria = createCriteria();
 
@@ -23,7 +22,7 @@ public class ExemploDAO extends AbstractDAO<ExemploEntity> {
 
 		criteria.setProjection(projectionList);
 
-		return (Double) criteria.uniqueResult();
+		return (int) criteria.uniqueResult();
 
 	}
 
